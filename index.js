@@ -22,20 +22,23 @@ async function main() {
     allUsers.forEach(user => console.log(user.name))
 
     //same solution but with prisma query
-    // const allChars = await prisma.character.findMany({
-    //     where: {
-    //         AND: [
-    //             {
-    //                 hair: 'long',
-    //             },
-    //             {
-    //                 gender: {
-    //                     not: 'F'
-    //                 },
-    //             },
-    //         ]
-    //     }
-    // })
+    const allChars = await prisma.character.findMany({
+        where: {
+            AND: [
+                {
+                    hair: 'long',
+                },
+                {
+                    gender: {
+                        not: 'F'
+                    },
+                },
+                {
+                    beard: true,
+                },
+            ]
+        }
+    })
     // console.log(allChars)
 
     // console.log(allUsers)
