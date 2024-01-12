@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model character {
+  id         Int     @id @default(autoincrement())
+  name       String  @unique
+  image      String
+  gender     String // M / F
+  skinColor  String // white / black ???????????
+  hair       String // short / long / bald
+  hairColor  String // black / brown / blonde / red / grey / white / none
+  eyes       String // brown / blue / green / grey
+  facialHair Boolean @default(false)
+  mustache   Boolean @default(false)
+  beard      Boolean @default(false)
+  hat        Boolean @default(false)
+  glasses    Boolean @default(false)
+}
